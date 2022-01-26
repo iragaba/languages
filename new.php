@@ -7,23 +7,20 @@
 <style>
 a{
     text-decoration: none;
-    color: blue;
-   border radius :30px;
-   color:   black;
-  
-    
-       }
+    color: black;
+    font-size: 15px;
+    }
 </style>
 
-<body bgcolor="powderblue">
+<body bgcolor="lightgray">
     <center>
-    <table width="50%" cellspacing="20" border="0">
+    <table width="10%" cellspacing="20" border="0">
 <tr>
-      <td><bold> <center><a href="new.php">INSERT WORDS</center
-      > </a> </td>
+    <td><a href="index.php">HOME</a></td><td></td>
+      <td ><a href="new.php"> INSART HERE </a> </td>
   </tr>
   </table>
-        <h1> <center><marquee>KONGERAMO ANDIMAGAMBO MURI DATABASE </center></marquee></h1>
+        <h1><center><marquee>KWINJIZAMO AMAGABO MURI DATABASE</marquee></center></h1>
         <?php
 include "conn.php"; // Using database connection file here
 
@@ -55,7 +52,7 @@ mysqli_close($db); // Close connection
         <form  method="post">
               
               
-<table bgcolor="gray" width="50%" cellspacing="20" border="0">
+<table bgcolor="powderblue" width="50%" cellspacing="20" border="0">
                <tr> <td><label for="variable">Variable</label></td>
                 <td><input type="text" name="variable" id="var"></td>
             </tr>

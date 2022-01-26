@@ -3,7 +3,7 @@
 <html>
 <head>
 
-	<title>Translation</title>
+<title>Translation</title>
 	<div class ="head">
     </title ><center><marquee><centers> TRANSIRATION LANGUAGES</center></marquee></title>
 </div>
@@ -34,17 +34,18 @@
 	.post{
     width:40%;
         height :60%;
-        left :30%;
-        top:20%;
+        left :25%;
+        top:15%;
         position: absolute;
         border-radius:20px;   
 }	
-.p{
+p{
 	text-align:center;
 	top:5%;
 	font-weight:bold;
 	position: absolute;
 	left :45%;
+	
 }
 .t{
 	text-align:center;
@@ -71,21 +72,26 @@
 <div> 
     <card.grid="2"><img src="images/happy.jpg" class="image" ></card>
 	</div >
+	</style>
+	<link rel="shortcut icon"  href="icon.jfif">
+</head>
+<body bgcolor="#F5F5DC">
 	<center>
-<table width="10%" cellspacing="20" border="0">
+<table width="40%" cellspacing="25" border="0" >
 <tr>
-    <td class = "t"><a href="index.php">HOME</a></td><td></td>
-      <td class ="y" color :"black"><bold><a href="new.php">INSART</bold></a> </td>
+    <td class ="t" ><a href="index.php">HOME</a></td><td></td>
+      <td class ="y" ><a href="new.php">INSART </a> </td>
   </tr>
   </table>
-	<p class ="p">Welcome to translation pages</p>
+	<p class ="p" >Welcome to translation page</p>
 	 
-		<form method="post"  class="post">
+		<form method="post" class ="post">
 			
        
  
-		<table bgcolor="powderblue"  width="50%" cellspacing="20" border="0">
-				<tr ><td colspan="2"><h1 style="font-weight:bold; font-size:100%;text-align:center "> language transilation form</h1></tr>
+		<table bgcolor="powderblue" width="20%" cellspacing="20" border="0"  class ="post">
+		<tr ><td colspan="2"><h1 style=" left:15% top:10%;font-weight:bold; font-size:100%;text-align:center "> language transilation form</h1></tr>
+     </tr>
 	<tr>			
 	<td>Translating :</td>
 	<td><!-- <select name="status" id="status" onchange="sayIt()">
@@ -96,7 +102,7 @@
 				
 			</select> -->
 			 <select name="word" id="val">
-    <option value="0" >-- Select word --</option>
+    <option value="0">-- Select word --</option>
     <?php
         include "conn.php";  // Using database connection file here
         $records = mysqli_query($db, "SELECT * From indimi");  // Use select query here 
@@ -118,12 +124,8 @@
 				<option value="4">Swahili</option>
 				
 			</select></td>
-			<td>
-                  <button name="translate" style="color: black;border-color:powderblue ;border-style:dashed;padding: 12px;background-color:gray;">Translate</button>
-                   </td>
-     </tr>
+			
      <tr>
-
 		 <?php 
 		 $result=[];
 		 if(isset($_POST['translate']))
