@@ -1,84 +1,153 @@
-<!DOCTYPE html>
-<html lang="en">
-  
-<head>
-    <title>Storing words</title>
-</head>
-<style>
-a{
-    text-decoration: none;
-    color: black;
-    font-size: 15px;
-    }
-</style>
 
-<body bgcolor="lightgray">
-    <center>
-    <table width="10%" cellspacing="20" border="0">
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Translation</title>
+	<div class ="head">
+    </title ><center><marquee><centers> TRANSIRATION LANGUAGES</center></marquee></title>
+</div>
+	<style >
+		
+		<style ="text/css">
+          . head{
+        width: 50%;
+        height :90%;
+        text-align:center;
+        margin:0;
+        font-size:5%;
+        font-weight:bold;}
+
+	.body{
+        width:40%;
+        height :60%;
+        left :40%;
+        top:20%;
+        position: absolute;
+        border-radius:20px
+	}
+	.image{
+    top:10%;
+    width:100%;
+    height:100%;
+	}
+	.post{
+    width:40%;
+        height :60%;
+        left :25%;
+        top:15%;
+        position: absolute;
+        border-radius:20px;   
+}	
+p{
+	text-align:center;
+	top:5%;
+	font-weight:bold;
+	position: absolute;
+	left :45%;
+	
+}
+.t{
+	text-align:center;
+	top:15%;
+	font-weight:bold;
+	position: absolute;
+	left : 30%;
+	color:black;
+
+}
+.y{
+	text-align:center;
+	top:15%;
+	font-weight:bold;
+	position: absolute;
+	right :30%;
+	color:black;
+
+}
+	</style>
+	<link rel="icon" href="images/happy.jpg">
+</head>
+<body bgcolor="powderblue">
+<div> 
+    <card.grid="2"><img src="images/happy.jpg" class="image" ></card>
+	</div >
+	</style>
+	<link rel="shortcut icon"  href="icon.jfif">
+</head>
+<body bgcolor="#F5F5DC">
+	<center>
+<table width="40%" cellspacing="25" border="0" >
 <tr>
-    <td><a href="index.php">HOME</a></td><td></td>
-      <td ><a href="new.php"> INSART HERE </a> </td>
+    <td class ="t" ><a href="index.php">HOME</a></td><td></td>
+      <td class ="y" ><a href="new.php">INSART </a> </td>
   </tr>
   </table>
-        <h1><center><marquee>KWINJIZAMO AMAGABO MURI DATABASE</marquee></center></h1>
-  
-        <form  method="post">
-              
-<table bgcolor="powderblue" width="50%" cellspacing="20" border="0">
-<?php
-include "conn.php"; // Using database connection file here
+	<p class ="p" >Welcome to translation page</p>
+	 
+		<form method="post" class ="post">
+			
+       
+ 
+		<table bgcolor="powderblue" width="20%" cellspacing="20" border="0"  class ="post">
+		<tr ><td colspan="2"><h1 style=" left:15% top:10%;font-weight:bold; font-size:100%;text-align:center "> language transilation form</h1></tr>
+     </tr>
+	<tr>			
+	<td>Translating :</td>
+	<td> <select name="word" id="val">
+    <option value="0">-- Select word --</option>
+    <?php
+        include "conn.php";  // Using database connection file here
+        $records = mysqli_query($db, "SELECT * From indimi");  // Use select query here 
 
-if(isset($_POST['submit']))
-{       
-    $variable = $_POST['variable'];
-    $kinyarwanda= $_POST['kinyarwanda'];
-        $french = $_POST['french'];
-        $english= $_POST['english'];
-        $swahili = $_POST['swahili'];
-        
-    $insert = mysqli_query($db,"INSERT INTO `indimi`(`variable`, `kinyarwanda`, `french`, `english`, `swahili`) 
-    VALUES ('$variable','$kinyarwanda','$french','$english','$swahili')");
+        while($data = mysqli_fetch_array($records))
+        {
+            echo "<option value='". $data['id'] ."'>" .$data['variable'] ."</option>";  // displaying data in option menu
+        }	
+    ?>  
+  </select>
+			</td>
+			<td>To :</td>
+			<td>
+				<select name="status">
+			    <option value="0">-- Select language --</option>
+				<option value="1">Kinyarwanda</option>
+				<option value="2">French</option>
+				<option value="3">English</option>
+				<option value="4">Swahili</option>
+				
+			</select></td>
+			
+     <tr>
+	 <td>
+                  <button name="translate" style="color: black;border-color: white;border-style:dashed;padding: 12px;background-color: gray;">Translate</button>
+                   </td>
+	</tr>
+	<tr>
+		 
+  <td>Here is your Result</td><td><label></label></td>
+		 }
 
-    if(!$insert)
-    {
-        echo mysqli_error();
-    }
-    else
-    {
-        echo "Records added successfully.";
-    }
+		 
+	
+   
+    
+     </tr>
+
+          
+                   
+</table>
+<!-- <label name="selected" id="selected">hjjfj</label>
+ <script>
+ function sayIt(){
+	const variable=document.getElementById("status").value;
+	document.getElementsByName("selected").value=variable;
+	return variable;
 }
 
-mysqli_close($db); // Close connection
-?>
-               <tr> <td><label for="variable">Variable</label></td>
-                <td><input type="text" name="variable" id="var"></td>
-            </tr>
-  
-             <tr>
-               <td> <label for="kinyarwanda">Kinyarwanda</label></td>
-                <td><input type="text" name="kinyarwanda" id="kinya"></td>
-            </tr>
-  
-  <tr>
-               <td> <label for="french">French</label></td>
-               <td> <input type="text" name="french" id="fre"></td>
-            </tr>
-  
-  <tr>              
-                 <td><label for="english">English</label></td>
-               <td> <input type="text" name="english" id="eng"></td>
-                  </tr>
-               <tr>
-                 <td><label for="swahili">Swahili</label></td>
-             <td>   <input type="text" name="swahili" id="swah"></td>
-            </tr>
-   
-           <tr>              
-        <td></td><td><input type="submit" name="submit" value="Submit"> </td></tr>
-            </table>
-        </form>
-    </center>
+// </script>-->
+</center>
 </body>
-  
-</html>
+</html>			
+
+
