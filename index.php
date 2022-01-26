@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -124,12 +125,63 @@ p{
                    </td>
 	</tr>
 	<tr>
-		 
-  <td>Here is your Result</td><td><label></label></td>
+		 <?php 
+		 $result=[];
+		 if(isset($_POST['translate']))
+		 {	
+			$result[0] = " ";
+			 $language = $_POST['status'];
+			 $word = $_POST['word'];
+			 if(($language == 0) || ($word == 0))
+			 {
+				 $result[0] = "choose valid data";
+
+			 }
+			 else {
+				 
+				$query_select_indimi= mysqli_query($db, "SELECT * FROM indimi where id='$word'");
+				if(mysqli_num_rows($query_select_indimi) > 0)
+				{
+					$result[0] = "one element found";
+
+					$data_re = $query_select_indimi->fetch_array();
+
+			if($language == 1)
+			{
+				$result[0] = $data_re['kinyarwanda'];
+			}
+			else if ($language == 2)
+			{
+				$result[0] = $data_re['french'];
+			}	else if ($language == 3)
+			{
+				$result[0] = $data_re['english'];
+			}	else if ($language == 4)
+			{
+				$result[0] = $data_re['swahili'];
+			}
+			else{
+				$result[0]="couldn't find";
+			}
+				}
+				else{
+					$result[0] = "no element found";
+				}
+
+			 }
+
+			
+	
+				
+			
+
+		
+?> 
+  <td>Here is your Result</td><td><label></label><?php echo $result[0];?></td><?php
 		 }
 
 		 
-	
+		 ?>
    
     
      </tr>
