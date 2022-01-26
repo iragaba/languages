@@ -19,36 +19,7 @@ a{
     <td><a href="index.php">HOME</a></td><td></td>
       <td ><a href="new.php"> INSART HERE </a> </td>
   </tr>
-  </table>
-        <h1><center><marquee>KWINJIZAMO AMAGABO MURI DATABASE</marquee></center></h1>
-        <?php
-include "conn.php"; // Using database connection file here
-
-if(isset($_POST['submit']))
-{       
-    $variable = $_POST['variable'];
-    $kinyarwanda= $_POST['kinyarwanda'];
-        $french = $_POST['french'];
-        $english= $_POST['english'];
-        $swahili = $_POST['swahili'];
-        
-
-    $insert = mysqli_query($db,"INSERT INTO `indimi`(`variable`, `kinyarwanda`, `french`, `english`, `swahili`) 
-    VALUES ('$variable','$kinyarwanda','$french','$english','$swahili')");
-
-    if(!$insert)
-    {
-        echo mysqli_error();
-    }
-    else
-    {
-        echo "Records added successfully.";
-    }
-}
-
-mysqli_close($db); // Close connection
-?>
-  
+   
         <form  method="post">
               
               
