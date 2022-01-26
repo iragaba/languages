@@ -94,13 +94,7 @@ p{
      </tr>
 	<tr>			
 	<td>Translating :</td>
-	<td><!-- <select name="status" id="status" onchange="sayIt()">
-				<option name="gura">V_Gura</option>
-				<option name="tuma">V_Rangura</option>
-				<option name="rangura">V_Gurisha</option>
-				<option name="Gurisha">V_Tuma</option>
-				
-			</select> -->
+	
 			 <select name="word" id="val">
     <option value="0">-- Select word --</option>
     <?php
